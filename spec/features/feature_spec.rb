@@ -8,11 +8,15 @@ describe Battle do
 
   describe 'the homepage', type: :feature do
     it 'players can see their names on the screen when submitting form' do
-      visit '/battle'
-      fill_in 'name1', with: "Snuggly Marshmallow"
-      fill_in 'name2', with: "Captain Potato"
-      click_button 'Submit'
+      sign_in_and_play
       expect(page).to have_content "Snuggly Marshmallow" "Captain Potato"
+    end
+  end
+
+  describe 'the homepage', type: :feature do
+    it "lets player 1 see player 2s hit points" do
+      sign_in_and_play
+      expect(page).to have_content "Captain Potato: 10HP"
     end
   end
 end
