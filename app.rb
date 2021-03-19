@@ -22,7 +22,13 @@ enable :sessions
   get '/play' do
     @name1 = $player_1.name
     @name2 = $player_2.name
+    @player2_hp = $player_2.hitpoints
     erb :play
+  end
+
+  post '/ok' do
+    $player_2.attack
+    redirect '/play'
   end
 
   get '/attack' do
