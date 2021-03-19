@@ -17,6 +17,7 @@ describe Battle do
 
     it "lets player 1 attack player 2 and receive a confirmation" do
       sign_in_and_play
+
       click_button 'Attack'
       expect(page).to have_content "Snuggly Marshmallow attacked Captain Potato!"
     end

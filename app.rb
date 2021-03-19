@@ -14,26 +14,25 @@ enable :sessions
   end
 
   post '/names' do
-    $player_1 = Player.new(params[:name1])
-    $player_2 = Player.new(params[:name2])
+    $new_game = Game.new(params[:name1],params[:name2])
     redirect '/play'
   end
 
   get '/play' do
-    @name1 = $player_1.name
-    @name2 = $player_2.name
-    @player2_hp = $player_2.hitpoints
+    @name1 = $new_game.player1.name
+    @name2 = $new_game.player2.name
+    @player2_hp = $new_game.player2.hitpoints
     erb :play
   end
 
   post '/ok' do
-    $player_2.attack
+    $new_game.attack($new_game.player2)
     redirect '/play'
   end
 
   post '/attack' do
-    @name1 = $player_1.name
-    @name2 = $player_2.name
+    @name1 = $new_game.player1.name
+    @name2 = $new_game.player2.name
     erb :attack
   end
 

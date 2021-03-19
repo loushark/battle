@@ -7,7 +7,7 @@ attr_reader :name, :hitpoints
     @hitpoints = 60
   end
 
-  def attack
+  def reduce
     @hitpoints -= 10
   end
 end
