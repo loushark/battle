@@ -36,6 +36,7 @@ enable :sessions
   post '/attack' do
     @current_player_name = $new_game.current_player.name
     @previous_player_name = $new_game.previous_player.name
+    @win_or_lose = $new_game.hitpoints_zero?($new_game.previous_player)
     erb :attack
   end
 

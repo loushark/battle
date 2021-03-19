@@ -3,9 +3,12 @@
    font-family: verdana}
 </style>
 
-<h2><%= @current_player_name %> attacked <%= @previous_player_name %>!</h2>
-
+<% if @win_or_lose %>
 <h2> <%= @current_player_name %> wins! You lose!</h2>
+<% else %>
+<h2><%= @current_player_name %> attacked <%= @previous_player_name %>!</h2>
+<% end %>
+
 
 
 <form action="/ok" method="post">

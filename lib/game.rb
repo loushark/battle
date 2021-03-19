@@ -24,7 +24,7 @@ class Game
   end
 
   def hitpoints_zero?(player)
-    player.hitpoints == 0
+    player.hitpoints == 10
   end
 
 end

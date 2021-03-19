@@ -20,7 +20,7 @@ describe Game do
 
   describe "#hitpoints_zero?" do
     it "returns true if HP is at zero" do
-    allow(player3).to receive(:hitpoints) {0}
+    allow(player3).to receive(:hitpoints) {10}
     expect(game.hitpoints_zero?(player3)).to eq(true)
     end
   end
