@@ -40,7 +40,7 @@ describe Battle do
       visit '/play'
       expect(page).not_to have_content "It is Captain Potato's turn to attack'"
       expect(page).to have_content "It is Snuggly Marshmallow's turn to attack"
-    end 
+    end
     scenario 'switch which player is attacking' do
       sign_in_and_play
       visit '/play'
@@ -48,8 +48,8 @@ describe Battle do
       click_button 'OK'
       expect(page).not_to have_content "It is Snuggly Marshmallow's turn to attack'"
       expect(page).to have_content "It is Captain Potato's turn to attack"
-    end 
-  end 
+    end
+  end
 
   feature 'HP goes down' do
     scenario 'when players switch, the hp goes down on player 1 as well' do
@@ -61,7 +61,17 @@ describe Battle do
       click_button 'OK'
       expect(page).not_to have_content 'Snuggly Marshmallow has 60HP'
       expect(page).to have_content 'Snuggly Marshmallow has 50HP'
-    end 
-  end 
+    end
+  end
+
+
+  feature 'Lose message' do
+    scenario 'when a player reaches 0HP it shows a lose message' do
+      sign_in_and_play
+      10.times { attack_to_lose }
+      click_button 'attack'
+      expect(page).to have_content "Snuggly Marshmallow wins! You lose!"
+    end
+  end
 
 end

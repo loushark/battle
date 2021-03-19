@@ -17,10 +17,14 @@ class Game
 
   def switch_turns
     @current_player == @player1 ? @current_player = @player2 : @current_player = @player1
-  end 
+  end
 
   def switch_attacked_player
     @previous_player == @player2 ? @previous_player = @player1 : @previous_player = @player2
-  end 
+  end
+
+  def hitpoints_zero?(player)
+    player.hitpoints == 0
+  end
 
 end
