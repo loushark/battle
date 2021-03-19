@@ -1,4 +1,9 @@
-<h2><%= @name1 %> attacked <%= @name2 %></h2>
+<style>
+  h2 { color:#ff0066;
+   font-family: verdana}
+</style>
+
+<h2><%= @name1 %> attacked <%= @name2 %>!</h2>
 
 <form action="/ok" method="post">
 <input type="submit" name ="OK" value="OK">

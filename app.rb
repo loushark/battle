@@ -31,7 +31,7 @@ enable :sessions
     redirect '/play'
   end
 
-  get '/attack' do
+  post '/attack' do
     @name1 = $player_1.name
     @name2 = $player_2.name
     erb :attack

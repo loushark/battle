@@ -7,7 +7,7 @@ describe Battle do
 
     it 'players can see their names on the screen when submitting form' do
       sign_in_and_play
-      expect(page).to have_content "Snuggly Marshmallow" "Captain Potato"
+      expect(page).to have_content "PLAYER 1: Snuggly Marshmallow\nPLAYER 2: Captain Potato"
     end
 
     it "lets player 1 see player 2s hit points" do
@@ -18,7 +18,7 @@ describe Battle do
     it "lets player 1 attack player 2 and receive a confirmation" do
       sign_in_and_play
       click_button 'Attack'
-      expect(page).to have_content "Snuggly Marshmallow attacked Captain Potato"
+      expect(page).to have_content "Snuggly Marshmallow attacked Captain Potato!"
     end
   end
 
