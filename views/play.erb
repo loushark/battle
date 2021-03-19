@@ -10,8 +10,10 @@ font-family: verdana}
 </b>
 <h1>PLAYER 2: <%=@name2%></h1>
 
+<h2><%=@name1%> has <%=@player1_hp%>HP</h2>
 <h2><%=@name2%> has <%=@player2_hp%>HP</h2>
 
+<h2>It is <%= @current_player_name %>'s turn to attack</h2>
 
 <form action="/attack" method="post">
 <input type="submit" name ="attack" value="Attack">

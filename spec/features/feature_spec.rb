@@ -34,4 +34,34 @@ describe Battle do
     end
   end
 
+  feature 'switch turns' do
+    scenario 'switch which player is attacking' do
+      sign_in_and_play
+      visit '/play'
+      expect(page).not_to have_content "It is Captain Potato's turn to attack'"
+      expect(page).to have_content "It is Snuggly Marshmallow's turn to attack"
+    end 
+    scenario 'switch which player is attacking' do
+      sign_in_and_play
+      visit '/play'
+      click_button 'attack'
+      click_button 'OK'
+      expect(page).not_to have_content "It is Snuggly Marshmallow's turn to attack'"
+      expect(page).to have_content "It is Captain Potato's turn to attack"
+    end 
+  end 
+
+  feature 'HP goes down' do
+    scenario 'when players switch, the hp goes down on player 1 as well' do
+      sign_in_and_play
+      visit '/play'
+      click_button 'attack'
+      click_button 'OK'
+      click_button 'attack'
+      click_button 'OK'
+      expect(page).not_to have_content 'Snuggly Marshmallow has 60HP'
+      expect(page).to have_content 'Snuggly Marshmallow has 50HP'
+    end 
+  end 
+
 end
